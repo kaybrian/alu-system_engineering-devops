@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# first commit
+
+sudo apt update
+sudo apt updagre
+sudo apt install nginx -y
+sudo sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
+
+sudo sed -i '/server_name _;/a \\n\tlocation / {\n\t\treturn 200 "Holberton School";\n\t}' /etc/nginx/sites-available/default
+sudo /usr/sbin/nginx -s reload
