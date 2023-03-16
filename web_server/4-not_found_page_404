@@ -7,6 +7,11 @@ sudo apt-get update
 # Install Nginx
 sudo apt-get install nginx -y
 
+# create an index.html page
+touch /etc/nginx/html/index.html
+
+echo "Holberton School" > /etc/nginx/html/index.html
+
 # Create custom 404 error page
 echo "<!DOCTYPE html>
 <html>
@@ -25,6 +30,9 @@ echo 'server {
     listen [::]:80 default_server;
 
     server_name _;
+
+    root        /etc/nginx/html;
+    index       index.html index.htm;
 
     root /var/www/html;
 
