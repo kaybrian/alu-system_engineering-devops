@@ -1,38 +1,8 @@
 #!/usr/bin/env bash
 # comment
-
-sudo apt-get update
-
-# Install Nginx
-sudo apt-get install nginx -y
-
-
-
-# Configure Nginx to listen on port 80 and return a page with "Holberton School"
-echo 'server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-        server_name _;
-        location / {
-                try_files $uri $uri/ =404;
-        }
-        location /redirect_me {
-                return 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;
-        }
-        error_page 404 /404.html;
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-                root /usr/share/nginx/html;
-        }
-        location / {
-                echo "Holberton School";
-        }
-}' > /etc/nginx/sites-available/default
-
-# Test Nginx configuration
-sudo nginx -t
-
-# Restart Nginx
-sudo kill -s HUP $(cat /var/run/nginx.pid)
+sudo apt update
+sudo apt -y install nginx
+sudo touch /var/www/html/index.html
+printf "Holberton School" >> /var/www/html/index.html
+sudo systemctl restart nginx.service
+sudo service nginx restart
