@@ -8,9 +8,10 @@ apt-get install haproxy=2.0.\*
 echo "ENABLED=1" >> /etc/default/haproxy
 
 
-printf %s "listen 5508-webs
+printf %s "listen 5517-webs
     bind *:80
     mode http
+
     balance roundrobin
     server 5517-web-01 3.80.117.30:80 check
     server 5517-web-02 54.227.173.17:80 check
