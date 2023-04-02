@@ -1,0 +1,5 @@
+# Web stack debugging #1
+# comment
+
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+service nginx restart
