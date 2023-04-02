@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+# comment
+sudo -u "$1" whoami
 
